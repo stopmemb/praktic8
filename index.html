@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Задание 1 -->
+    <button onclick="alert('Нажал')">Нажми</button>
+    <button onmouseover="this.style.backgroundColor='purple'"
+        onmouseout="this.style.backgroundColor=''">Наведение</button>
+    <button onmousedown="this.style.transform='scale(1.2)'" onmouseup="this.style.transform='scale(2)'">Зажатие</button>
+
+    <!-- Задание 2 -->
+    <button id="R">R</button>
+    <button id="G">G</button>
+    <button id="B">B</button>
+    
+
+    <script>
+        function changeColor() {
+                document.getElementById('color').style.backgroundColor = 'aqua';
+            }
+
+            const redButton = document.getElementById("R");
+            const greenButton = document.getElementById("G");
+            const blueButton = document.getElementById("B");
+            const body = document.body;
+            const previousBackgroundColor = body.style.backgroundColor;
+
+            redButton.addEventListener("click", () => {
+                if (body.style.backgroundColor === "red") {
+                    body.style.backgroundColor = "white";
+                } else {
+                    body.style.backgroundColor = "red";
+                }
+            });
+            greenButton.addEventListener("click", () => {
+                if (body.style.backgroundColor === "green") {
+                    body.style.backgroundColor = "white";
+                } else {
+                    body.style.backgroundColor = "green";
+                }
+            });
+            blueButton.addEventListener("click", () => {
+                if (body.style.backgroundColor === "blue") {
+                    body.style.backgroundColor = "white";
+                } else {
+                    body.style.backgroundColor = "blue";
+                }
+            });
+
+    </script>
+
+    <!-- Задание 3 -->
+    <div id="Box" class="BoxMF">
+        <div class="Box">
+
+        </div>
+    </div>
+
+    <script>
+        let Box = document.getElementById('Box');
+            let pos = { top: 100, left: 100 }
+            Box.style.top = pos.top + 'px';
+            Box.style.left = pos.left + 'px';
+
+            let obj = {
+                '40': ['top', 1],
+                '38': ['top', -1],
+                '39': ['left', 1],
+                '37': ['left', -1],
+            }
+
+            addEventListener('keydown', function (e) {
+                let key = obj[e.keyCode];
+                if (key) { // key[0] == 'top' или 'left'
+                    pos[key[0]] = pos[key[0]] + key[1];
+                    Box.style[key[0]] = pos[key[0]] + 'px';
+                }
+            });
+    </script>
+
+</body>
+
+</html>
